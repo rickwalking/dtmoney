@@ -10,7 +10,8 @@ import { TransactionsProvider } from "./hooks/useTransactions";
 Modal.setAppElement("#root");
 
 export function App() {
-    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
+        useState(false);
 
     function handleOpenNewTransactionModal() {
         setIsNewTransactionModalOpen(true);
@@ -24,7 +25,10 @@ export function App() {
         <TransactionsProvider>
             <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
             <Dashboard />
-            <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
+            <NewTransactionModal
+                isOpen={isNewTransactionModalOpen}
+                onRequestClose={handleCloseNewTransactionModal}
+            />
             <GlobalStyle />
         </TransactionsProvider>
     );

@@ -17,7 +17,7 @@ export const Container = styled.div`
             align-items: center;
             justify-content: space-between;
         }
-    
+
         strong {
             display: block;
             margin-top: 1rem;
@@ -28,7 +28,7 @@ export const Container = styled.div`
 
         &.highlight-background {
             background: var(--green);
-            color: #FFF;
+            color: #fff;
         }
     }
 `;

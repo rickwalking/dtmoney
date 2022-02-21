@@ -10,21 +10,24 @@ export function Summary() {
     const { transactions } = useTransactions();
 
     const summary = useMemo(() => {
-        return transactions.reduce((accumulator, transaction) => {
-            if (transaction.type === "deposit") {
-                accumulator.deposits += transaction.amount;
-                accumulator.total += transaction.amount;
-            } else {
-                accumulator.withdraws += transaction.amount;
-                accumulator.total -= transaction.amount;
+        return transactions.reduce(
+            (accumulator, transaction) => {
+                if (transaction.type === "deposit") {
+                    accumulator.deposits += transaction.amount;
+                    accumulator.total += transaction.amount;
+                } else {
+                    accumulator.withdraws += transaction.amount;
+                    accumulator.total -= transaction.amount;
+                }
+
+                return accumulator;
+            },
+            {
+                deposits: 0,
+                withdraws: 0,
+                total: 0,
             }
-    
-            return accumulator;
-        },{
-            deposits: 0,
-            withdraws: 0,
-            total: 0,
-        });
+        );
     }, [transactions]);
 
     return (
